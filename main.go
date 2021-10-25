@@ -92,16 +92,16 @@ func New(config ...Config) fiber.Handler {
 
 		switch p {
 		case defaultIndex:
-			c.Type("html")
+			c.Status(200).Type("html")
 			return index.Execute(c, cfg)
 		case defaultDocURL:
 			doc, err := swag.ReadDoc()
 			if err != nil {
 				return err
 			}
-			return c.Type("json").SendString(doc)
+			return c.Status(200).Type("json").SendString(doc)
 		case "", "/":
-			return c.Redirect(path.Join(prefix, defaultIndex), fiber.StatusMovedPermanently)
+			return c.Status(200).Redirect(path.Join(prefix, defaultIndex), fiber.StatusMovedPermanently)
 		default:
 			return fs(c)
 		}
