@@ -32,22 +32,8 @@ type Config struct {
 	// 'none' (expands nothing)
 	DocExpansion string
 
-	// Configuration information for OAuth2, optional if using OAuth2
-	OAuth *OAuthConfig
-
-	// Custom OAuth redirect URL
-	OAuth2RedirectUrl string
-
 	// URL pointing to API definition
 	URL string
-}
-
-type OAuthConfig struct {
-	// application name, displayed in authorization popup
-	AppName string
-
-	// ID of the client sent to the OAuth2 Provider, default is clientId
-	ClientId string
 }
 
 // New returns custom handler
