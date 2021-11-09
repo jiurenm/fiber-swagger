@@ -76,17 +76,7 @@ window.onload = function() {
     layout: "StandaloneLayout",
     deepLinking: {{.DeepLinking}},
     docExpansion: "{{.DocExpansion}}",
-    {{if .OAuth2RedirectUrl}}
-    oauth2RedirectUrl: {{.OAuth2RedirectUrl}},
-    {{end}}
   })
-
-  {{if .OAuth}}
-  ui.initOAuth({
-    appName: "{{.OAuth.AppName}}",
-    clientId: "{{.OAuth.ClientId}}"
-  })
-  {{end}}
 
   window.ui = ui
 }
